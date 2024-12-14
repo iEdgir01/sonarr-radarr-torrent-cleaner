@@ -1,0 +1,12 @@
+radarr:
+  url: "http://radarr:port"
+  api_key: "your-radarr-api-key"
+
+sonarr:
+  url: "http://sonarr:port"
+  token: "your-sonarr-api-key"
+
+api_timeout: 600
+strike_count: 5
+
+log_directory: "/app/logs"

@@ -1,31 +1,42 @@
 import asyncio
+import yaml
 import logging
-import json
+import os
 import requests
+from datetime import datetime
+from urllib.parse import urljoin
+from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
+from typing import Any
 
-# Load configuration from config.json
-with open('config.json', 'r') as config_file:
-    config = json.load(config_file)
+# Load configuration from config.yml
+config_file = os.path.join(os.getcwd(), 'config', 'config.yml')
+with open(config_file, 'r') as file:
+    config = yaml.safe_load(file)
 
-SONARR_API_URL = config['SONARR_API_URL'] + "/api/v3"
-SONARR_API_KEY = config['SONARR_API_KEY']
-RADARR_API_URL = config['RADARR_API_URL'] + "/api/v3"
-RADARR_API_KEY = config['RADARR_API_KEY']
-API_TIMEOUT = config['API_TIMEOUT']
-STRIKE_COUNT = config['STRIKE_COUNT']
+# Extract configuration values
+RADARR_URL = config['radarr']['url']
+RADARR_API_KEY = config['radarr']['api_key']
+SONARR_URL = config['sonarr']['url']
+SONARR_API_KEY = config['sonarr']['api_key']
+API_TIMEOUT = config['api_timeout']
+STRIKE_COUNT = config['strike_count']
+LOG_DIR = config['log_directory']
 
 # Initialize the strike count dictionary
 strike_counts = {}
 
-# Set up logging
-logging.basicConfig(
-    format='%(asctime)s [%(levelname)s]: %(message)s', 
-    level=logging.INFO, 
-    handlers=[logging.StreamHandler()]
-)
+# Create the logs directory if it doesn't exist
+os.makedirs(LOG_DIR, exist_ok=True)
+
+# Configure logging
+log_file = os.path.join(LOG_DIR, 'radarr-autodelete.log')
+logging.basicConfig(filename=log_file, level=logging.INFO, format='%(asctime)s %(levelname)s[%(name)s]:%(message)s')
+
+# Log script start
+logging.info('Script started.')
 
 # Function to make API requests
-def make_api_request(url:str, api_key:str, params=None) -> any | None:
+def make_api_request(url: str, api_key: str, params=None) -> Any:
     headers = {
         'X-Api-Key': api_key
     }
@@ -38,7 +49,7 @@ def make_api_request(url:str, api_key:str, params=None) -> any | None:
         return None
 
 # Function to make API delete requests
-def make_api_delete(url:str, api_key:str, params=None) -> any | None:
+def make_api_request(url: str, api_key: str, params=None) -> Any:
     headers = {
         'X-Api-Key': api_key
     }
