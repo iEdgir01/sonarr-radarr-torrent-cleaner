@@ -6,13 +6,13 @@ A simple Sonarr and Radarr script to clean out stalled downloads.
 A "strike" system to ensure the stalled downloads have been stalled for a while.
 
 The amount of strikes and amount of time between checks can be changed in the config file.
- - this logic is forked from Paey Moopy's additions ```https://github.com/PaeyMoopy/sonarr-radarr-queue-cleaner```
+ - this logic is forked from Paey Moopy's additions: https://github.com/PaeyMoopy/sonarr-radarr-queue-cleaner
 
 <h1>My fork aims to do 3 things.</h1>
 
 1 : remove python ``|`` usage within the script as to allow more versatility with older python versions - this is specifically for OpenMediaVault compatability
 
-2 : update the url parsing and creation logic to my own as refrenced here: ```https://github.com/iEdgir01/radarr-autodelete``` as I find the existing config.jason to not work correctly  # probably because I'm dumb.
+2 : update the url parsing and creation logic to my own as refrenced here: https://github.com/iEdgir01/radarr-autodelete as I find the existing config.jason to not work correctly  # probably because I'm dumb.
 
 3 : remove the dependancy to build the docker image locally on your system - this is a pain to do on OMV setups as most things are web based - including the docker-compose functionality. In this way you just need to add the provided docker-compose to the OMV docker-compose extension, edit a config volume mount, create your own config.yml somewhere and voila. It should work. - you can check the logs of course to confirm.
 
