@@ -1,4 +1,4 @@
-# sonarr-radarr-torrent-cleaner
+<h1> # sonarr-radarr-torrent-cleaner </h1>
 This is a fork of MattDGTLs project with some added functionality. Credit to the overall idea can go here: https://github.com/MattDGTL/sonarr-radarr-queue-cleaner
 
 A simple Sonarr and Radarr script to clean out stalled downloads.
@@ -6,12 +6,13 @@ A simple Sonarr and Radarr script to clean out stalled downloads.
 A "strike" system to ensure the stalled downloads have been stalled for a while.
 
 The amount of strikes and amount of time between checks can be changed in the config file.
- - this logic is forked from Paey Moopy's additions``https://github.com/PaeyMoopy/sonarr-radarr-queue-cleaner``
+ - this logic is forked from Paey Moopy's additions ```https://github.com/PaeyMoopy/sonarr-radarr-queue-cleaner```
 
-My fork aims to do 3 things.
+<h1>My fork aims to do 3 things.</h1>
+
 1 : remove python ``|`` usage within the script as to allow more versatility with older python versions - this is specifically for OpenMediaVault compatability
 
-2 : update the url parsing and creation logic to my own as refrenced here: ``https://github.com/iEdgir01/radarr-autodelete`` as I find the existing config.jason to not work correctly  # probably because I'm dumb.
+2 : update the url parsing and creation logic to my own as refrenced here: ```https://github.com/iEdgir01/radarr-autodelete``` as I find the existing config.jason to not work correctly  # probably because I'm dumb.
 
 3 : remove the dependancy to build the docker image locally on your system - this is a pain to do on OMV setups as most things are web based - including the docker-compose functionality. In this way you just need to add the provided docker-compose to the OMV docker-compose extension, edit a config volume mount, create your own config.yml somewhere and voila. It should work. - you can check the logs of course to confirm.
 
@@ -21,14 +22,16 @@ your ``config.yml``,wherever it may be,  must be mounted under volumes in the do
 I will also be creating a dedicated docker image so that you dont need to build the image locally, but instead can use a docker-compose file which i will add to the repo once I have made the above changes.
 ``link to docker image goes here once created``
 
-config.yml particulars:
-edit the config file and input your server information.
+<h1>config.yml particulars:</h1>
+<b></b>edit the config file and input your server information.</b>
 RADARR:
   URL: "http://radarr:port"
   API_KEY: "your-radarr-api-key"
+
 SONARR:
   URL: "http://radarr:port"
   API_KEY: "your-radarr-api-key"
+
 API_TIMEOUT = how often to check for stalled downloads in seconds.
 STRIKE_COUNT = how many strikes before looking for a new download.
 
