@@ -13,14 +13,13 @@ The number of strikes and the time between checks can be customized in the `conf
 This change ensures greater compatibility with older versions of Python, specifically for OpenMediaVault setups.
 
 ### 2. Update the URL parsing and creation logic
-I’ve updated the URL handling logic to my own, as referenced in [this project](https://github.com/iEdgir01/radarr-autodelete), because the existing `config.json` handling seemed unreliable (this might be due to user error).
+I’ve updated the URL handling logic to my own, as referenced in [this project](https://github.com/iEdgir01/radarr-autodelete), because the existing `config.json` handling didnt want to work ## probably because I am dumb.
 
 ### 3. Remove the need to build a Docker image locally
 Building Docker images locally on OpenMediaVault can be inconvenient since the OMV environment is largely web-based, including the Docker Compose functionality. Instead, you only need to add the provided `docker-compose.yml` file via the OMV Docker Compose extension. Then, you can mount the `config.yml` file and start the service with ease. Check the logs to ensure it's working.
 
-I will also be creating a dedicated Docker image, which will allow you to use a pre-built Docker Compose file instead of building the image locally. Once that is ready, I will provide the link to the image here.
-
-[Link to Docker image goes here once created]
+I will also be creating a dedicated Docker image, which will allow you to use a pre-built Docker Compose file instead of building the image locally. Once that is ready, I will provide the link to the image here:
+``link to docker image``
 
 ## `config.yml` File Setup
 
