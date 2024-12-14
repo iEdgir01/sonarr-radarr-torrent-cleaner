@@ -24,6 +24,8 @@ I will also be creating a dedicated docker image so that you dont need to build 
 
 <h1>config.yml particulars:</h1>
 <b></b>edit the config file and input your server information.</b>
+
+```
 RADARR:
   URL: "http://radarr:port"
   API_KEY: "your-radarr-api-key"
@@ -34,6 +36,6 @@ SONARR:
 
 API_TIMEOUT = how often to check for stalled downloads in seconds.
 STRIKE_COUNT = how many strikes before looking for a new download.
-
+```
 For example, if API_TIMEOUT = 600, and STRIKE_COUNT = 5, the system will check for stalled downloads every 10 minutes. If any item is stalled, it gets a strike. Once an item recieves 5 strikes it gets removed and searched.
 So in this example, any item that has been stalled for 1 hour will get removed and searched.
