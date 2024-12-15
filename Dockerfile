@@ -1,16 +1,11 @@
 FROM python:3.9-slim-buster
-
-ENV SONARR_URL='http://sonarr:8989'
-ENV SONARR_API_KEY=123456
-ENV RADARR_URL='http://radarr:7878'
-ENV RADARR_API_KEY=123456
-ENV TIMEOUT=600
-
 WORKDIR /app
-
-COPY requirements.txt ./
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
-
+RUN mkdir -p logs
+RUN chmod -R 777 logs
+RUN mkdir -p config
+RUN chmod -R 777 config
+COPY config.yml ./config
 COPY . .
-
-CMD ["python", "cleaner.py"]
+ENTRYPOINT ["python", "media_cleaner.py"]
