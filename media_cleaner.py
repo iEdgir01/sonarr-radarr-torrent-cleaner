@@ -26,9 +26,6 @@ LOG_DIR = config['log_directory']
 # Initialize the strike count dictionary
 strike_counts = {}
 
-# Define the logs directory
-LOG_DIR = "/app/logs"
-
 # Create the logs directory if it doesn't exist
 os.makedirs(LOG_DIR, exist_ok=True)
 
