@@ -1,0 +1,22 @@
+services:  
+  radarr_autodelete:
+    image: iedgir01/media_cleaner:latest
+    container_name: media_cleaner
+    networks:
+      - media_server
+    volumes:
+      - '/docker/media_cleaner/logs:/app/logs'
+      - '/docker/media_cleaner/config:/app/config'
+    environment:
+      - PUID=1001
+      - PGID=100
+      - TZ=Africa/Johannesburg
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+        
+networks:
+  media_server:
+    external: true
