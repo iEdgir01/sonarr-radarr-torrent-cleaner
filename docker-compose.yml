@@ -1,5 +1,5 @@
 services:  
-  radarr_autodelete:
+  media_cleaner:
     image: iedgir01/media_cleaner:latest
     container_name: media_cleaner
     networks:
