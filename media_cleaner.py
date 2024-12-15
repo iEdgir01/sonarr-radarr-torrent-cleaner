@@ -2,12 +2,12 @@ import asyncio
 import yaml
 import logging
 import os
+import sys
 import requests
 from datetime import datetime
 from urllib.parse import urljoin
 from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
 from typing import Any
-import sys
 
 # Load configuration from config.yml
 config_file = os.path.join(os.getcwd(), 'config', 'config.yml')
