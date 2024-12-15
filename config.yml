@@ -6,7 +6,7 @@ sonarr:
   url: "http://sonarr:port"
   token: "your-sonarr-api-key"
 
-api_timeout: 600
-strike_count: 5
+API_TIMEOUT: 600  # How often to check for stalled downloads, in seconds
+STRIKE_COUNT: 5   # How many strikes before removing the download
 
 log_directory: "/app/logs"
