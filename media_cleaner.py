@@ -29,7 +29,7 @@ strike_counts = {}
 os.makedirs(LOG_DIR, exist_ok=True)
 
 # Configure logging
-log_file = os.path.join(LOG_DIR, 'radarr-autodelete.log')
+log_file = os.path.join(LOG_DIR, 'media_cleaner.log')
 logging.basicConfig(filename=log_file, level=logging.INFO, format='%(asctime)s %(levelname)s[%(name)s]:%(message)s')
 
 # Log script start
