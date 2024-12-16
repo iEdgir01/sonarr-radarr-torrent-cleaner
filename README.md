@@ -16,10 +16,9 @@ This change ensures greater compatibility with older versions of Python, specifi
 I’ve updated the URL handling logic to my own, as referenced in [this project](https://github.com/iEdgir01/radarr-autodelete), because the existing `config.json` handling didnt want to work ## probably because I am dumb.
 
 ### 3. Remove the need to build a Docker image locally
-Building Docker images locally on OpenMediaVault can be inconvenient since the OMV environment is largely web-based, including the Docker Compose functionality. Instead, you only need to add the provided `docker-compose.yml` file via the OMV Docker Compose extension. Then, you can mount the `config.yml` file and start the service with ease. Check the logs to ensure it's working.
+Building Docker images locally on OpenMediaVault can be inconvenient since the OMV environment is web-based. you only need to add the provided `docker-compose.yml` file via the OMV Docker Compose extension or clone the docker-compose fil locally and ``docker-compose up``. Check the logs to ensure it's working.
 
-I will also be creating a dedicated Docker image, which will allow you to use a pre-built Docker Compose file instead of building the image locally. Once that is ready, I will provide the link to the image here:
-``link to docker image``
+I have created [a dedicated Docker image](https://hub.docker.com/r/iedgir01/media_cleaner), which will allow you to use a pre-built Docker Compose file instead of building the image and hosting the codebase locally.
 
 ## `config.yml` File Setup
 
