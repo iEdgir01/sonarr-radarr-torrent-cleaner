@@ -22,7 +22,8 @@ I have created [a dedicated Docker image](https://hub.docker.com/r/iedgir01/medi
 
 ## `config.yml` File Setup
 
-To configure the system, edit the `config.yml` file with your server information.
+To configure the script, edit the `config.yml` file with your radarr and sonarr url and api key.
+the config.yml needs to be saved inside ``/path/to/your/media_cleaner/config``.
 
 ```yaml
 RADARR:
