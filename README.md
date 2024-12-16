@@ -18,7 +18,7 @@ I’ve updated the URL handling logic to my own, as referenced in [this project]
 ### 3. Remove the need to build a Docker image locally
 Building Docker images locally on OpenMediaVault can be inconvenient since the OMV environment is web-based. you only need to add the provided `docker-compose.yml` file via the OMV Docker Compose extension or clone the docker-compose fil locally and ``docker-compose up``. Check the logs to ensure it's working.
 
-I have created [a dedicated Docker image](https://hub.docker.com/r/iedgir01/media_cleaner), which will allow you to use a pre-built Docker Compose file instead of building the image and hosting the codebase locally.
+I have created [a dedicated Docker image](https://hub.docker.com/r/iedgir01/media_cleaner), which will allow you to use thge provided docker-compose file instead of building the image and hosting the codebase locally.
 
 ## `config.yml` File Setup
 
