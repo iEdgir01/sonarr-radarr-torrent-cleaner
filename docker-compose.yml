@@ -5,12 +5,12 @@ services:
     networks:
       - media_server
     volumes:
-      - '/docker/media_cleaner/logs:/app/logs'
-      - '/docker/media_cleaner/config:/app/config'
+      - '/your/path/to/media_cleaner/logs:/app/logs'
+      - '/your/path/to/media_cleaner/config:/app/config'
     environment:
-      - PUID=1001
-      - PGID=100
-      - TZ=Africa/Johannesburg
+      - PUID=1000
+      - PGID=1000
+      - TZ=UTC
     logging:
       driver: "json-file"
       options:
