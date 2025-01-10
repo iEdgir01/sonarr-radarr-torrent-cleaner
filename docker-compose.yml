@@ -6,16 +6,16 @@ services:
       - media_server
     volumes:
       - '/your/path/to/media_cleaner/logs:/app/logs'
-      - '/your/path/to/media_cleaner/config:/app/config'
     environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=UTC
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "10m"
-        max-file: "3"
+      - RADARR_URL=http://radarr:port
+      - RADARR_API_KEY=your-radarr-api-key
+      - SONARR_URL=http://sonarr:port
+      - SONARR_API_KEY=your-sonarr-api-key
+      - API_TIMEOUT=600
+      - STRIKE_COUNT=5
+      - PUID=1000 #Change to your PUID
+      - PGID=1000 #Change to your PGID
+      - TZ=UTC #Change to your TZ
         
 networks:
   media_server:

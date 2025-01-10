@@ -1,0 +1,11 @@
+# config.template
+radarr:
+  url: "${RADARR_URL}"
+  api_key: "${RADARR_API_KEY}"
+
+sonarr:
+  url: "${SONARR_URL}"
+  token: "${SONARR_API_KEY}"
+
+api_timeout: "${API_TIMEOUT:-600}"  # Default to 600 if not set
+strike_count: "${STRIKE_COUNT:-5}"   # Default to 5 if not set

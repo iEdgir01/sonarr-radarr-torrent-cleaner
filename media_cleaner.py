@@ -21,7 +21,8 @@ SONARR_URL = config['sonarr']['url']
 SONARR_API_KEY = config['sonarr']['api_key']
 API_TIMEOUT = config['api_timeout']
 STRIKE_COUNT = config['strike_count']
-LOG_DIR = config['log_directory']
+
+LOG_DIR = '/app/logs'
 
 # Initialize the strike count dictionary
 strike_counts = {}
@@ -30,18 +31,13 @@ strike_counts = {}
 os.makedirs(LOG_DIR, exist_ok=True)
 
 # Configure logging
+os.makedirs(LOG_DIR, exist_ok=True)
 log_file = os.path.join(LOG_DIR, 'media_cleaner.log')
-
-# Create the root logger
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
-
-# File handler to write logs to a file
 file_handler = logging.FileHandler(log_file)
 file_handler.setFormatter(logging.Formatter('%(asctime)s %(levelname)s[%(name)s]:%(message)s'))
 logger.addHandler(file_handler)
-
-# Stream handler to output logs to stdout
 stream_handler = logging.StreamHandler(sys.stdout)
 stream_handler.setFormatter(logging.Formatter('%(asctime)s %(levelname)s[%(name)s]:%(message)s'))
 logger.addHandler(stream_handler)
