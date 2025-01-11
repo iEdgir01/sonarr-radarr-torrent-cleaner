@@ -19,8 +19,8 @@ RADARR_URL = config['radarr']['url']
 RADARR_API_KEY = config['radarr']['api_key']
 SONARR_URL = config['sonarr']['url']
 SONARR_API_KEY = config['sonarr']['api_key']
-API_TIMEOUT = config['api_timeout']
-STRIKE_COUNT = config['strike_count']
+API_TIMEOUT = int(config['api_timeout'])
+STRIKE_COUNT = int(config['strike_count'])
 
 LOG_DIR = '/app/logs'
 
