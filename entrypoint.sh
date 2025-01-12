@@ -20,8 +20,8 @@ missing_vars=()
 check_env_vars() {
     [ -z "$RADARR_URL" ] && missing_vars+=("RADARR_URL")
     [ -z "$RADARR_API_KEY" ] && missing_vars+=("RADARR_API_KEY")
-    [ -z "$PLEX_URL" ] && missing_vars+=("PLEX_URL")
-    [ -z "$PLEX_TOKEN" ] && missing_vars+=("PLEX_TOKEN")
+    [ -z "$SONARR_URL" ] && missing_vars+=("SONARR_URL")
+    [ -z "$SONARR_API_KEY" ] && missing_vars+=("SONARR_API_KEY")
 
     # Optional config vars with defaults
     : "${API_TIMEOUT:=600}"
