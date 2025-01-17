@@ -1,5 +1,4 @@
 import asyncio
-import yaml
 import logging
 import os
 import sys
@@ -9,18 +8,13 @@ from urllib.parse import urljoin
 from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
 from typing import Any
 
-# Load configuration from config.yml
-config_file = os.path.join(os.getcwd(), 'config', 'config.yml')
-with open(config_file, 'r') as file:
-    config = yaml.safe_load(file)
-
-# Extract configuration values
-RADARR_URL = config['radarr']['url']
-RADARR_API_KEY = config['radarr']['api_key']
-SONARR_URL = config['sonarr']['url']
-SONARR_API_KEY = config['sonarr']['api_key']
-API_TIMEOUT = int(config['api_timeout'])
-STRIKE_COUNT = int(config['strike_count'])
+# Extract configuration values from environment variables
+RADARR_URL = os.getenv('RADARR_URL')
+RADARR_API_KEY = os.getenv('RADARR_API_KEY')
+SONARR_URL = os.getenv('SONARR_URL')
+SONARR_API_KEY = os.getenv('SONARR_API_KEY')
+API_TIMEOUT = int(os.getenv('API_TIMEOUT', 600))  # Default to 600 if not set
+STRIKE_COUNT = int(os.getenv('STRIKE_COUNT', 5))  # Default to 5 if not set
 
 LOG_DIR = '/app/logs'
 

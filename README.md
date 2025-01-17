@@ -20,9 +20,8 @@ Building Docker images locally on OpenMediaVault can be inconvenient since the O
 
 I have created [a dedicated Docker image](https://hub.docker.com/r/iedgir01/media_cleaner), which will allow you to use thge provided docker-compose file instead of building the image and hosting the codebase locally.
 
-## `ENVIRONMENT_VARIABLES` Setup - this creates the config.yml values within /config from config.template.
-To configure the script add these ENVIROMENT_VARIABLES to the docker compose or edit the `config.template` file and save it as `config.yml`.
-the config.yml needs to be saved inside ``/path/to/your/media_cleaner/config``.
+## `ENVIRONMENT_VARIABLES` Setup:
+To configure the script add these ENVIROMENT_VARIABLES to the docker compose.
 
 ```bash
 #basic config !!REQUIRED!!
