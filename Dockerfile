@@ -18,4 +18,4 @@ RUN chmod -R 777 logs
 COPY . .
 
 # Default command to run the application
-CMD ["python", "radarr-autodelete.py"]
+CMD ["python", "media_cleaner.py"]
